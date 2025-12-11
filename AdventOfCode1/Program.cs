@@ -29,8 +29,10 @@ class Program
             }
         }
     }
-    static int UpdatePosition(int value, int mod)
+    static int UpdatePosition(int turn, int range)
     {
-        return ((value % mod) + mod) % mod;
+        while (turn >= range) turn -= range;
+        while (turn < 0) turn += range;
+        return turn;
     }
 }
